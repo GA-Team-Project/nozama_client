@@ -1,2 +1,12 @@
-# team_project_frontend
-Frontend client for a full stack team project
+# Nozama Client
+
+## Overview
+Group project to create a website for Nozama, an e-commerce company
+
+## Related Links
+
+## Technologies
+
+## User Stories
+
+## Wireframe
