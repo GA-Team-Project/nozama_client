@@ -2,13 +2,17 @@
   {{log item}}
 
 
- <!-- Developers, why are we using data-id and not just id? -->
-  <h1 data-id="{{item.id}}" class="my-item"> <small>{{item.name}}</small></h1>
-  <h4 data-id="{{item.id}}">
-      {{item.price}}
-      {{item.description}}
-      {{item.weight}}
-      {{item.dimensions}}
-  </h4>
+ <div class="item-box">
+    <div class="item-image">Image location</div>
+    <h1 data-id="{{item.id}}" class="my-item"> <small>{{item.name}}</small></h1>
+    <ul data-id="{{item.id}}">
+        <li><b>Price:</b> ${{item.price}}</li>
+        <li><b>Description:</b> {{item.description}}</li>
+        <li><b>Weight:</b> {{item.weight}}g</li>
+        <li><b>Dimensions:</b> {{item.dimensions}}</li>
+        <li> <button>Add to cart</button></li>
+    </ul>
+   
+  </div>
 
 {{/each}}
