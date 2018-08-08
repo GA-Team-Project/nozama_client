@@ -10,9 +10,9 @@ const signUpSuccess = function () {
 }
 
 const signInSuccess = function (data) {
-  $('#auth-modal').hide()
+  // $('#auth-modal').hide()
   store.user = data.user
-  $('.navbar').toggle('display')
+  // $('.navbar').toggle('display')
   $('#sign-in-form')[0].reset()
   $('#sign-up-form')[0].reset()
 }
