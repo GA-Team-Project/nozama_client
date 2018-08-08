@@ -3,37 +3,40 @@
 const store = require('../scripts/store')
 // const userEvents = require('../user/events')
 
+
+const clearMessage = (id) => {
+  // console.log(id)
+  id.html('')
+}
+
+
 const signUpSuccess = function () {
-  $('#auth-modal').remove()
-  // $('.content').append(authTemplate)
-  // Need more work!
+
 }
 
 const signInSuccess = function (data) {
-  // $('#auth-modal').hide()
   store.user = data.user
-  // $('.navbar').toggle('display')
   $('#sign-in-form')[0].reset()
   $('#sign-up-form')[0].reset()
-}
+  $('#sign-in-message').css('background', 'green').text('Sign in Succefully!')
+  setTimeout(
+    () => {
+      clearMessage($('#sign-in-message'))
+    }, 750
+  )
+  
+} 
 
 const changePasswordSuccess = function () {
 }
 
 const signOutSuccess = function () {
   store.user = {}
-  store.devices = []
-  store.repairs = []
   // userEvents.clearContent()
 
   // Close toggle menu (Mobile View)
   $('.navbar-toggle').hasClass('collapsed') ? 
     '' : $('.navbar-toggle').click()
-
-  $('.wrapper').css('display', 'none')
-  $('.main').css('display', 'block')
-  $('.navbar').toggle('display')
-  $('#auth-modal').show()
 }
 
 const failure = function (error) {
