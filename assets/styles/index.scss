@@ -26,6 +26,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 .content {
     text-align: center;
+    margin-top: 50px;
 }
 .item-box {
     width: 20%;
@@ -40,7 +41,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .item-image {
     height: 150px;
 }
-ul {
+.item-box > ul {
     list-style-type: none;
     padding: 0;
     height: 150px;
