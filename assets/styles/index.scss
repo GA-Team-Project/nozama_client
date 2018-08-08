@@ -1,11 +1,20 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+.navbar {
+    margin-bottom: 0;
+}
+
 
 .dropdown-menu {
     padding: 0 10px 10px 10px;
+    width: 350px;
 
     .auth-btn, input {
         width: 100%;
+    }
+
+    input {
+        padding: 5px;
     }
 }
