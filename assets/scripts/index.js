@@ -12,6 +12,7 @@ const itemEvents = require('../scripts/items/events')
 $(() => {
   authEvents.authHandlers()
   itemEvents.addHandlers()
+  $('#getItemsButton').click()
   // $('#getItemsButton').click()
   // $('.content').html(showItemsHtml)
 })

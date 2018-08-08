@@ -21,6 +21,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // **********************
 // Styles for items
 // **********************
+#getItemsButton {
+    display: none;
+}
 .content {
     text-align: center;
 }
