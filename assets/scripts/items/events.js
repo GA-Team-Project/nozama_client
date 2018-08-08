@@ -5,6 +5,7 @@ const ui = require('./ui.js')
 
 const onGetItems = (event) => {
   event.preventDefault()
+  console.log('events')
   api.getItems()
     .then(ui.getItemsSuccess)
     .catch(ui.failure)
@@ -15,18 +16,19 @@ const onGetItems = (event) => {
 //   ui.clearItems()
 // }
 
-const onDeleteItem = (event) => {
-  event.preventDefault()
-  const itemId = $(event.target).closest('ul').attr('data-id')
-  api.deleteItem(itemId)
-    .then(() => onGetItems(event))
-    .catch(ui.failure)
-}
+// const onDeleteItem = (event) => {
+//   event.preventDefault()
+//   const itemId = $(event.target).closest('ul').attr('data-id')
+//   api.deleteItem(itemId)
+//     .then(() => onGetItems(event))
+//     .catch(ui.failure)
+// }
 
 const addHandlers = () => {
   $('#getItemsButton').on('click', onGetItems)
+  // $('#getItemsButton').on('click', console.log('click'))
   // $('#clearItemsButton').on('click', onClearItems)
-  $('.content').on('click', 'button', onDeleteItem)
+  // $('.content').on('click', 'button', onDeleteItem)
 }
 
 module.exports = {
