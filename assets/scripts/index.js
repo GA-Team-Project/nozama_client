@@ -6,7 +6,13 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const authEvents = require('../auth/events')
-
+const itemEvents = require('../scripts/items/events')
+// const showItemsTemplate = require('../templates/item.handlebars')
+// const showItemsHtml = showItemsTemplate({ items: data.items })
 $(() => {
   authEvents.authHandlers()
+  itemEvents.addHandlers()
+  $('#getItemsButton').click()
+  // $('#getItemsButton').click()
+  // $('.content').html(showItemsHtml)
 })

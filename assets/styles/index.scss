@@ -18,3 +18,31 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
         padding: 5px;
     }
 }
+// **********************
+// Styles for items
+// **********************
+#getItemsButton {
+    display: none;
+}
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+.item-box {
+    width: 20%;
+    height: 400px;
+    display: inline-block;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 15px;
+    vertical-align: top;
+    text-align: left;
+}
+.item-image {
+    height: 150px;
+}
+.item-box > ul {
+    list-style-type: none;
+    padding: 0;
+    height: 150px;
+}
