@@ -1,9 +1,11 @@
 'use strict'
 
 const showItemsTemplate = require('../templates/item.handlebars')
+const store = require('../store')
 
 const getItemsSuccess = (data) => {
-  console.log(data)
+  store.items = data.items
+  console.log(store)
   const showItemsHtml = showItemsTemplate({ items: data.items })
   $('.content').html(showItemsHtml)
 }
