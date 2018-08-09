@@ -16,6 +16,7 @@ const signUpSuccess = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  console.log(store)
   $('#sign-in-form')[0].reset()
   $('#sign-up-form')[0].reset()
   $('#sign-in-message').css('background', 'green').text('Sign in Succefully!')
