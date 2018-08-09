@@ -1,6 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-
 .navbar {
     margin-bottom: 0;
 }
@@ -25,24 +25,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
     display: none;
 }
 .content {
-    text-align: center;
     margin-top: 50px;
 }
-.item-box {
-    width: 20%;
-    height: 400px;
-    display: inline-block;
-    border: 2px solid black;
-    margin: 20px;
-    padding: 15px;
-    vertical-align: top;
+.thumbnail {
+    height: 450px;
     text-align: left;
 }
-.item-image {
-    height: 150px;
+
+.thumbnail > img {
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
 }
-.item-box > ul {
+.caption > ul {
     list-style-type: none;
     padding: 0;
-    height: 150px;
 }
