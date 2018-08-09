@@ -141,6 +141,16 @@
       </a>
     </div>
   </div>
+
+      <div class="stripe">
+        <form action="http://localhost:4741/orders" method="POST">
+          <input type='hidden' name='headers[Authorization]' value="Bearer 42bcbabd48ef53bd5041b29dc72f6f2b"/>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_I14scEAR7GUQqoFGFTTdriYt" data-amount="999"
+            data-name="Stripe.com" data-description="Example charge" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto" data-zip-code="true">
+            </script>
+        </form>
+      </div>
 </body>
 
 </html>
