@@ -1,45 +1,61 @@
 const store = require('../scripts/store')
 const api = require('./api')
 const ui = require('./ui')
-const order = []
+const cart = []
 
 
-// EDIT
-// const onShowEditDevice = function (event) {
-//     event.preventDefault()
-//     clearContent()
-//     let template, target = $(event.target).parents('ul').attr('data-id')
-//     store.devices.forEach((device) => {
-//         if (device.id == target) {
-//             template = `<div data-id="${device.id}" class="tmp">
-//                         <h1>Update Device Information</h1>
-//                         <hr>
-//                             <form id="edit-device-form" class="border">
-//                                 <input type="text" name="device[make]" placeholder="${device.make}">
-//                                 <input type="text" name="device[model]" placeholder="${device.model}">
-//                                 <input type="text" name="device[serial_number]" placeholder="${device.serial_number}">
-//                                 <input type="submit" value="Edit Device">
-//                             </form>
-//                         </div>`
-//         }
-//     })
-//     $('.tmp-container').css('display', 'block').append(template)
-//     $('#edit-device-form').on('submit', onEditDevice)
+// const isEmpty = (arr) => {
+//     arr.length === 0 ? console.log(true) : console.log(false)
 // }
+
+const total = (cart) => {
+    let total = 0
+    for (let i = 0; i < cart.length; i++) {
+        total += (cart[i].price) * 1
+    }
+    console.log(total)
+    return total
+}
 
 const addToCart = function (event) {
     event.preventDefault()
     // clearContent() <=== still doesnt exist!
-    let item
-    let target = $(event.target).parents('ul').attr('data-id')
-    console.log(target)
-    item = {
-        id: target,
-        qty: 1
+    // if (store.user.token == null) {
+    //     return
+    // } else {
+        let target = $(event.target).parents('ul').attr('data-id')
+        let price = $(event.target).parents('ul').attr('data-price')
+        let item, order
+
+        item = {
+            id: target,
+            price: price,
+            qty: 1
+        }
+        cart.push(item)
+        let orderTotal = total(cart)
+        let items = []
+        cart.forEach((element) => {
+            if (element.id in cart) {
+                console.log("Already in Array")
+            } else
+            items.push({
+                item_id: element.id,
+                quantity: element.qty
+            })
+        })
+        order = {
+            owner: store.user._id,
+            items: items,
+            total: orderTotal,
+            submitted: false
+
+        }
+        console.log(cart)
+
+        api.createOrder(order)
     }
-    order.push(item)
-    console.log(order)
-}
+// }
 
 
 
@@ -51,4 +67,4 @@ const userHandlers = () => {
 
 module.exports = {
     userHandlers
- }
+}
