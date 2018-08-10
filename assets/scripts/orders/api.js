@@ -14,9 +14,9 @@ const createOrder = (data) => {
   })  
 }
 
-const updateOrder = (data) => {
+const updateOrder = (data, id) => {
   return $.ajax({
-    url: config.apiUrl + '/orders',
+    url: config.apiUrl + '/orders/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

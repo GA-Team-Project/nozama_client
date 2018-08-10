@@ -4,7 +4,8 @@ const store = {
     user: {
         first_name: String(),
         orders: [],
-        cart: []
+        cart: [],
+        oder_id: ''
     },
     items:  Array()
 }

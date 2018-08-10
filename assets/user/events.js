@@ -58,10 +58,8 @@ const addToCart = function (event) {
         console.log(newOrder)
         newOrder.items.length == 1 ? 
             ordersAPI.createOrder(data)
-                .then(() => {
-                    console.log(cart)
-                })
-         : console.log(cart) //ordersAPI.updateOrder(data)
+                .then(ui.createOrderSuccess)
+         :  ordersAPI.updateOrder(data, store.user.order_id)
         // ordersAPI.createOrder(order)
     }
 // }
