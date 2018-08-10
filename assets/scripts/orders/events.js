@@ -30,6 +30,9 @@ const onDeleteOrder = (event) => {
 const addHandlers = () => {
   $('#cart').on('click', onGetOrders)
   // $('#cart').on('click', console.log('click'))
+  $('#past-orders').on('click', onGetOrders)
+  // $('#past-orders').on('click', console.log('click'))
+  // $('#getOrdersButton').on('click', console.log('click'))
   // $('#clearordersButton').on('click', onClearorders)
   // $('.content').on('click', 'button', onDeleteOrder)
 }
