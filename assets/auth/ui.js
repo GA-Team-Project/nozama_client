@@ -32,7 +32,7 @@ const signInSuccess = function (data) {
   $('.sign-in-up').css('display', 'none')
   $('#seeInfo').css('display', 'block')
   $('#cart').css('display', 'block')
-  $('#username').text(`Hi ${data.user.first_name}`).css('color', 'white')
+  $('#username').text(`Hi, ${data.user.first_name}`).css('color', 'white')
 }
 
 const changePasswordSuccess = function () {

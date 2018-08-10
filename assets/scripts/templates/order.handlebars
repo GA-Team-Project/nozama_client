@@ -1,25 +1,23 @@
 {{#if orders}}
     {{#each orders as |order|}}
-      {{!-- <div class="row">
-        <h3>{{order.name}}</h3>
-        <p>{{order.price}}</p>
-      </div> --}}
-      <h3>ID: {{order._id}}</h3>
-      <h3>Owner: {{order._owner}}</h3>
-      <h3>Date: {{order.createdAt}}</h3>
-      <h3>Item: {{> item}}</h3>
-
-      {{!-- NONE OF THE BELOW WORKS  --}}
-      {{!-- <h3>Item ID: {{> item._id}}</h3> --}}
-      {{!-- <h3>Item ID: {{> item.price}}</h3> --}}
-      {{!-- {{#each order.items as |item|}}
-      
-      {{/each}} --}}
-      {{!-- <h3>Items: {{order.items[0]}}</h3> --}}
-      {{!-- <h3>Items: {{#each order.items as |item|}}</h3>{{/each}} --}}
-
-      <h3>Total: {{order.total}}</h3>
-      <h3>Submitted: {{order.submitted}}</h3>
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Order ID: {{order._id}}</h3>
+        <hr>
+        <p>Owner ID: {{order._owner}}</p>
+        <p>Date: {{order.createdAt}}</p>
+        {{!-- <p>Item: {{order.items}}</p> --}}
+        {{#each order.items as |item|}}
+        <p>Item: {{item._id}}</p>
+        <p>Item ID: {{item.item_id}}</p>
+        <p>Quantity: {{item.quantity}}</p>
+        {{/each}}
+        {{!-- <h3>HB ITEMS:{{> order-items}}</h3> --}}
+        {{!-- <h3>HB ITEMS:{{> order}}</h3> --}}
+        <p>Total: ${{order.total}}</p>
+        {{!-- <h3>Submitted: {{order.submitted}}</h3> --}}
+      </div>
+    </div>  
     {{/each}}
 {{else}}
   <h3>No orders</h3>
