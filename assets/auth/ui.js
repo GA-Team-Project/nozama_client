@@ -20,6 +20,7 @@ const signUpSuccess = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  console.log(data.user)
   $('#sign-in-form')[0].reset()
   $('#sign-up-form')[0].reset()
   $('#sign-in-message').css('background', '#FFFFCC').text('Sign in succeful!')
@@ -31,6 +32,7 @@ const signInSuccess = function (data) {
   $('.sign-in-up').css('display', 'none')
   $('#seeInfo').css('display', 'block')
   $('#cart').css('display', 'block')
+  $('#username').text(`Hi ${data.user.first_name}`).css('color', 'white')
 }
 
 const changePasswordSuccess = function () {
@@ -49,6 +51,7 @@ const signOutSuccess = function () {
   $('.sign-in-up').css('display', 'block')
   $('#seeInfo').css('display', 'none')
   $('#cart').css('display', 'none')
+  $('#username').text(``)
   $('#changedPasswordMessage').text('Signed out! See you next time!').css('background', '#FFFFCC').fadeOut(3000)
   setTimeout(function () {
     $('#userInfoModal').modal('hide')
