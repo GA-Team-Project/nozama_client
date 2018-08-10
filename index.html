@@ -168,11 +168,16 @@
             </button>
           </div>
           <div class="modal-body">
+            <button  type="submit" class="btn btn-warning" id="past-orders"> Past Orders </button> 
+            <br>
+            <hr>
             <form id="change-password" class="border">
               <fieldset>
                 <h3>Change Password</h3>
-                <div><input type="password" name="passwords[old]" placeholder="Old Password">
-                <div><input type="password" name="passwords[new]" placeholder="New Password"></div>
+                <input type="password" name="passwords[old]" placeholder="Old Password">
+                <br>
+                <input type="password" name="passwords[new]" placeholder="New Password">
+                <br>
                 <br>
                 <button type="submit" class="btn btn-default">Change Password</button>
               </fieldset>
@@ -180,9 +185,7 @@
             <br>
             <div id="changedPasswordMessage"></div>
             <hr>
-            <button  type="submit" class="btn btn-warning" id="past-orders"> Past Orders </button> 
             <br>
-            <hr>
             <form id="sign-out">
               <input type="submit" class="btn btn-warning" value="Sign Out!">
             </form>

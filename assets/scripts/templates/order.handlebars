@@ -4,17 +4,17 @@
       <div class="caption">
         <h3>Order ID: {{order._id}}</h3>
         <hr>
-        <p>Owner ID: {{order._owner}}</p>
-        <p>Date: {{order.createdAt}}</p>
+        <p><b>Owner ID:</b> {{order._owner}}</p>
+        <p><b>Date:</b> {{order.createdAt}}</p>
         {{!-- <p>Item: {{order.items}}</p> --}}
         {{#each order.items as |item|}}
-        <p>Item: {{item._id}}</p>
-        <p>Item ID: {{item.item_id}}</p>
-        <p>Quantity: {{item.quantity}}</p>
+        <p><b>Item:</b> {{item._id}}</p>
+        <p><b>Item ID:</b> {{item.item_id}}</p>
+        <p><b>Quantity:</b> {{item.quantity}}</p>
         {{/each}}
         {{!-- <h3>HB ITEMS:{{> order-items}}</h3> --}}
         {{!-- <h3>HB ITEMS:{{> order}}</h3> --}}
-        <p>Total: ${{order.total}}</p>
+        <p><b>Total:</b> ${{order.total}}</p>
         {{!-- <h3>Submitted: {{order.submitted}}</h3> --}}
       </div>
     </div>  
