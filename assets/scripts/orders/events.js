@@ -24,7 +24,7 @@ const addHandlers = () => {
   $('#cart').on('click', console.log('click'))
   // $('#getOrdersButton').on('click', console.log('click'))
   // $('#clearordersButton').on('click', onClearorders)
-  $('.content').on('click', 'button', onDeleteOrder)
+  // $('.content').on('click', 'button', onDeleteOrder)
 }
 
 module.exports = {

@@ -20,18 +20,14 @@ const signUpSuccess = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  let firstName = data.user.first_name
   console.log(store)
   $('#sign-in-form')[0].reset()
   $('#sign-up-form')[0].reset()
-  $('#sign-in-message').css('background', '#FFFFCC').text('Sign in succeful!')
-  setTimeout(
-    () => {
-      clearMessage($('#sign-in-message'))
-    }, 750
-  )
   $('.sign-in-up').css('display', 'none')
-  $('#seeInfo').css('display', 'block')
+  $('#seeInfo').css('display', 'block').text(`Hello, ${firstName}`)
   $('#cart').css('display', 'block')
+
 }
 
 const changePasswordSuccess = function () {
@@ -42,8 +38,7 @@ const changePasswordSuccess = function () {
 
 const signOutSuccess = function () {
   store.user = {}
-  // userEvents.clearContent()
-
+  store.orders = []
   // Close toggle menu (Mobile View)
   // $('.navbar-toggle').hasClass('collapsed') ?
   //   '' : $('.navbar-toggle').click()
@@ -53,7 +48,7 @@ const signOutSuccess = function () {
   $('#changedPasswordMessage').text('Signed out! See you next time!').css('background', '#FFFFCC').fadeOut(3000)
   setTimeout(function () {
     $('#userInfoModal').modal('hide')
-  }, 2000)
+  }, 3000)
 }
 const signInFailure = function () {
   $('#sign-in-form')[0].reset()
