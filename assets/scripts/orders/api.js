@@ -14,6 +14,17 @@ const createOrder = (data) => {
   })  
 }
 
+const updateOrder = (data) => {
+  return $.ajax({
+    url: config.apiUrl + '/orders',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })  
+}
+
 const getOrders = function () {
   return $.ajax({
     url: config.apiUrl + '/orders',
@@ -34,5 +45,6 @@ const deleteOrder = (itemId) => {
 module.exports = {
   getOrders,
   deleteOrder,
-  createOrder
+  createOrder,
+  updateOrder
 }

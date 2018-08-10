@@ -3,7 +3,8 @@
 const store = {
     user: {
         first_name: String(),
-        orders: []
+        orders: [],
+        cart: []
     },
     items:  Array()
 }

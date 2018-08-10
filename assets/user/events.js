@@ -2,7 +2,7 @@ const store = require('../scripts/store')
 const api = require('./api')
 const ui = require('./ui')
 const ordersAPI = require('../scripts/orders/api')
-const cart = []
+const cart = store.user.cart
 
 
 // const isEmpty = (arr) => {
@@ -56,7 +56,12 @@ const addToCart = function (event) {
         let data = {order : newOrder}
         
         console.log(newOrder)
-        newOrder.items.length == 1 ? ordersAPI.createOrder(data) : console.log("longer Than 1")
+        newOrder.items.length == 1 ? 
+            ordersAPI.createOrder(data)
+                .then(() => {
+                    console.log(cart)
+                })
+         : console.log(cart) //ordersAPI.updateOrder(data)
         // ordersAPI.createOrder(order)
     }
 // }
