@@ -18,6 +18,20 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
         padding: 5px;
     }
 }
+
+// **********************
+// Hidden until signed in
+// **********************
+#seeInfo {
+    display: none;
+}
+#cart {
+    display: none;
+}
+#userInfoModal{
+    text-align: center;
+}
+
 // **********************
 // Styles for items
 // **********************
