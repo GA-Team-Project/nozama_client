@@ -3,6 +3,7 @@
 // const createOrderTemplate = require('../templates/order.handlebars')
 const showOrdersTemplate = require('../templates/order.handlebars')
 const store = require('../store')
+let cart = store.user.cart
 // const showOrdersItemsTemplate = require('../templates/order-items.handlebars')
 
 const createOrderSuccess = () => {
@@ -11,6 +12,7 @@ const createOrderSuccess = () => {
 
 const orderHistory = store.user.orders
 const getOrdersSuccess = (data) => {
+  store.user.orders = []
   // console.log(data)
   for (let i = 0; i < data.orders.length; i++) {
     if (data.orders[i].submitted === true) {
@@ -23,11 +25,11 @@ const getOrdersSuccess = (data) => {
       // const showOrdersItemsHtml = showOrdersItemsTemplate({ items: data.orders.items })
       $('.content').html(showOrdersHtml)
     } else if (data.orders[i].submitted === false) {
-      store.user.cart.push(data.orders[i])
+      cart.push(data.orders[i])
     }
   }
   console.log(store)
-  
+
   setTimeout(function () {
     $('#userInfoModal').modal('hide')
   }, 2000)
