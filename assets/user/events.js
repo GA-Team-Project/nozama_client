@@ -1,6 +1,7 @@
 const store = require('../scripts/store')
 const api = require('./api')
 const ui = require('./ui')
+const ordersAPI = require('../scripts/orders/api')
 const cart = []
 
 
@@ -25,7 +26,7 @@ const addToCart = function (event) {
     // } else {
         let target = $(event.target).parents('ul').attr('data-id')
         let price = $(event.target).parents('ul').attr('data-price')
-        let item, order
+        let item, newOrder
 
         item = {
             id: target,
@@ -44,16 +45,19 @@ const addToCart = function (event) {
                 quantity: element.qty
             })
         })
-        order = {
+        newOrder = {
             owner: store.user._id,
             items: items,
             total: orderTotal,
             submitted: false
 
         }
-        // console.log(cart)
 
-        api.createOrder(order)
+        let data = {order : newOrder}
+        
+        console.log(newOrder)
+        newOrder.items.length == 1 ? ordersAPI.createOrder(data) : console.log("longer Than 1")
+        // ordersAPI.createOrder(order)
     }
 // }
 

@@ -21,7 +21,7 @@ const signUpSuccess = function () {
 const signInSuccess = function (data) {
   store.user = data.user
   let firstName = data.user.first_name
-  console.log(store)
+  // console.log(store)
   $('#sign-in-form')[0].reset()
   $('#sign-up-form')[0].reset()
   $('.sign-in-up').css('display', 'none')

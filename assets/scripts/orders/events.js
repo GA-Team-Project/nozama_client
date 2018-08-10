@@ -35,5 +35,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  createOrder
 }
