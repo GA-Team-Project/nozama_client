@@ -7,14 +7,17 @@
       <h3>ID: {{order._id}}</h3>
       <h3>Owner: {{order._owner}}</h3>
       <h3>Date: {{order.createdAt}}</h3>
+      <h3>Item: {{> item}}</h3>
 
       {{!-- NONE OF THE BELOW WORKS  --}}
+      {{!-- <h3>Item ID: {{> item._id}}</h3> --}}
+      {{!-- <h3>Item ID: {{> item.price}}</h3> --}}
       {{!-- {{#each order.items as |item|}}
-      <h3>Item: {{item}}</h3>
+      
       {{/each}} --}}
       {{!-- <h3>Items: {{order.items[0]}}</h3> --}}
       {{!-- <h3>Items: {{#each order.items as |item|}}</h3>{{/each}} --}}
-      
+
       <h3>Total: {{order.total}}</h3>
       <h3>Submitted: {{order.submitted}}</h3>
     {{/each}}
