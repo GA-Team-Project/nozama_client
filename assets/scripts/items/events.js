@@ -5,7 +5,6 @@ const ui = require('./ui.js')
 
 const onGetItems = (event) => {
   event.preventDefault()
-  console.log('events')
   api.getItems()
     .then(ui.getItemsSuccess)
     .catch(ui.failure)
@@ -26,6 +25,7 @@ const onGetItems = (event) => {
 
 const addHandlers = () => {
   $('#getItemsButton').on('click', onGetItems)
+  $('.navbar-brand').on('click', onGetItems)
   // $('#getItemsButton').on('click', console.log('click'))
   // $('#clearItemsButton').on('click', onClearItems)
   // $('.content').on('click', 'button', onDeleteItem)

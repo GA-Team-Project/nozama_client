@@ -51,7 +51,7 @@ const addToCart = function (event) {
             submitted: false
 
         }
-        console.log(cart)
+        // console.log(cart)
 
         api.createOrder(order)
     }

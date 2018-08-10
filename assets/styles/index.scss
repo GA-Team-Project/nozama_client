@@ -1,11 +1,27 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-.navbar {
-    margin-bottom: 0;
+
+
+* {
+font-size: 18px;
+// overflow: hidden;
+// content: '';
 }
 
+.navbar {
+    font-size: 20px;
+    margin-bottom: 0;
+    padding: 10px 0; 
 
+    .navbar-brand > img {
+        padding: 10px 10px;
+    }
+}
+
+.glyphicon {
+    font-size: 18px;
+}
 .dropdown-menu {
     padding: 0 10px 10px 10px;
     width: 350px;
