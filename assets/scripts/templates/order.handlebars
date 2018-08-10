@@ -1,24 +1,23 @@
-{{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --}}
-<div class="row">
-{{#each items as |item|}}
-  {{log item}}
+{{#if orders}}
+    {{#each orders as |order|}}
+      {{!-- <div class="row">
+        <h3>{{order.name}}</h3>
+        <p>{{order.price}}</p>
+      </div> --}}
+      <h3>ID: {{order._id}}</h3>
+      <h3>Owner: {{order._owner}}</h3>
+      <h3>Date: {{order.createdAt}}</h3>
 
-  <div class="col-sm-6 col-md-3 item-image">
-    <div class="thumbnail">
-      <img src={{item.url}} alt="lego figure">
-      <div class="caption">
-        <h3>{{item.name}}</h3>
-        <p>
-          <ul data-id="{{item._id}}">
-            <b>Price:</b> ${{item.price}}</>
-            <li><b>Description:</b> {{item.description}}</li>
-            <li><b>Weight:</b> {{item.weight}}g</li>
-            <li><b>Dimensions:</b> {{item.dimensions}}</li>
-          </ul>
-        </p>
-        <p><a href="#" class="btn btn-warning" role="button">Add to cart</a></p>
-      </div>
-    </div>
-  </div>
-{{/each}}
-</div>
+      {{!-- NONE OF THE BELOW WORKS  --}}
+      {{!-- {{#each order.items as |item|}}
+      <h3>Item: {{item}}</h3>
+      {{/each}} --}}
+      {{!-- <h3>Items: {{order.items[0]}}</h3> --}}
+      {{!-- <h3>Items: {{#each order.items as |item|}}</h3>{{/each}} --}}
+      
+      <h3>Total: {{order.total}}</h3>
+      <h3>Submitted: {{order.submitted}}</h3>
+    {{/each}}
+{{else}}
+  <h3>No orders</h3>
+{{/if}}

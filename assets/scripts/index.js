@@ -7,11 +7,13 @@
 // require('./example')
 const authEvents = require('../auth/events')
 const itemEvents = require('../scripts/items/events')
+const orderEvents = require('../scripts/orders/events')
 // const showItemsTemplate = require('../templates/item.handlebars')
 // const showItemsHtml = showItemsTemplate({ items: data.items })
 $(() => {
   authEvents.authHandlers()
   itemEvents.addHandlers()
+  orderEvents.addHandlers()
   $('#getItemsButton').click()
   // $('#getItemsButton').click()
   // $('.content').html(showItemsHtml)
