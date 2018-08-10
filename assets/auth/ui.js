@@ -30,6 +30,7 @@ const signInSuccess = function (data) {
   )
   $('.sign-in-up').css('display', 'none')
   $('#seeInfo').css('display', 'block')
+  $('#cart').css('display', 'block')
 }
 
 const changePasswordSuccess = function () {
@@ -47,6 +48,7 @@ const signOutSuccess = function () {
   //   '' : $('.navbar-toggle').click()
   $('.sign-in-up').css('display', 'block')
   $('#seeInfo').css('display', 'none')
+  $('#cart').css('display', 'none')
   $('#changedPasswordMessage').text('Signed out! See you next time!').css('background', '#FFFFCC').fadeOut(3000)
   setTimeout(function () {
     $('#userInfoModal').modal('hide')
