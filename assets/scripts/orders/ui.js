@@ -9,19 +9,21 @@ const createOrderSuccess = () => {
   console.log(store.user.orders)
 }
 
+const orderHistory = store.user.orders
 const getOrdersSuccess = (data) => {
-  console.log(data)
+  // console.log(data)
   for (let i = 0; i < data.orders.length; i++) {
     if (data.orders[i].submitted === true) {
-      const orders = data.orders
-      // console.log('1')
+      orderHistory.push(data.orders[i])
+      console.log(orderHistory)
+      const orders = orderHistory
       // console.log(orders)
       // console.log('1')
       const showOrdersHtml = showOrdersTemplate({ orders: orders })
       // const showOrdersItemsHtml = showOrdersItemsTemplate({ items: data.orders.items })
       $('.content').html(showOrdersHtml)
     } else if (data.orders[i].submitted === false) {
-      store.user.cart = data.orders
+      store.user.cart.push(data.orders[i])
     }
   }
   console.log(store)
