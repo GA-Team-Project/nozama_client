@@ -4,7 +4,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 
 * {
-font-size: 18px;
+font-size: 16px;
 // overflow: hidden;
 // content: '';
 }
@@ -70,4 +70,8 @@ font-size: 18px;
 .caption > ul {
     list-style-type: none;
     padding: 0;
+}
+
+th, td {
+    padding: 15px;
 }

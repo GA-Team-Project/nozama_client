@@ -1,73 +1,46 @@
 'use strict'
 
-// const createOrderTemplate = require('../templates/order.handlebars')
+const checkoutTemplate = require('../templates/checkout.handlebars')
 const showOrdersTemplate = require('../templates/order.handlebars')
 const store = require('../store')
-const cart = store.userData.cart
-const orderHistory = store.user.orders
+// let cart = store.userData.cart
+let orderHistory = store.userData.orders
 
 
 const createOrderSuccess = () => {
-  console.log(store.user.orders)
+  // console.log(store.user.orders)
 }
 
 const getOrdersSuccess = (data) => {
-  store.userData.orders = []
   const current_user = store.user._id
   for (let i = 0; i < data.orders.length; i++) {
-    if (data.orders[i].owner === current_user && data.orders[i].submitted ) {
+    if (data.orders[i].owner === current_user && data.orders[i].submitted) {
       orderHistory.push(data.orders[i])
-    } else if (!data.orders[i].submitted && data.orders[i].owner === current_user ) {
-      cart.push(data.orders[i])
-    } else { console.log("Skipping")}
+    } else if (!data.orders[i].submitted && data.orders[i].owner === current_user) {
+      store.userData.cart = data.orders[i]
+      // console.log(cart)
+    } else {
+      console.log("Skipping")
+    }
   }
   // console.log("Store", store)
-  console.log("Cart", cart)
+  console.log("Cart store", store.userData.cart)
   // console.log("Orders", orderHistory)
-  store.userData.order_id = store.userData.cart[0]._id
-  const showOrdersHtml = showOrdersTemplate({ orders: orderHistory })
-  $('#userInfoModal').modal('hide')
-  $('.content').html(showOrdersHtml)
-  // console.log(data)
-  // for (let i = 0; i < data.orders.length; i++) {
-  //   if (data.orders[i].submitted === true) {
-  //     orderHistory.push(data.orders[i])
-  //     console.log(orderHistory)
-  //     const orders = orderHistory
-  //     // console.log(orders)
-  //     // console.log('1')
-  //     const showOrdersHtml = showOrdersTemplate({ orders: orders })
-  //     // const showOrdersItemsHtml = showOrdersItemsTemplate({ items: data.orders.items })
-  //     $('.content').html(showOrdersHtml)
-  //   } else if (data.orders[i].submitted === false) {
-  //     cart.push(data.orders[i])
-  //   }
-  // }
-  // console.log(store)
-
-  // setTimeout(function () {
-  //   $('#userInfoModal').modal('hide')
-  // }, 2000)
+  store.userData.order_id = store.userData.cart._id
+  // const showOrdersHtml = showOrdersTemplate({ orders: orderHistory })
+  // $('#userInfoModal').modal('hide')
+  // $('.content').html(showOrdersHtml)
+  console.log(store)
+  return cart
 }
 
-// const getCurrentOrderSuccess = (data) => {
-//   console.log(data)
-//   for (let i = 0; i < data.orders.length; i++) {
-//     if (data.orders[i].submitted === true) {
-//       const orders = data.orders
-//       // console.log('1')
-//       // console.log(orders)
-//       // console.log('1')
-//       const showOrdersHtml = showOrdersTemplate({ orders: orders })
-//       // const showOrdersItemsHtml = showOrdersItemsTemplate({ items: data.orders.items })
-//       $('.content').html(showOrdersHtml)
-//     }
-//   }
-
-//   setTimeout(function () {
-//     $('#userInfoModal').modal('hide')
-//   }, 2000)
-// }
+// WORK IN PROGRESS
+const showCart = function () {
+  const showCartHtml = checkoutTemplate({
+    items: store.userData.cart.items
+  })
+  $('.content').html(showCartHtml)
+}
 
 const failure = (error) => {
   console.error(error)
@@ -76,6 +49,6 @@ const failure = (error) => {
 module.exports = {
   createOrderSuccess,
   getOrdersSuccess,
-  // getCurrentOrderSuccess,
+  showCart,
   failure
 }

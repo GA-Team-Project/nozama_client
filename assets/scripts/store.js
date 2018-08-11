@@ -1,19 +1,14 @@
 'use strict'
 
 const store = {
-    user: {
-        first_name: String(),
-        orders: [],
-        cart: [],
-        oder_id: ''
-    },
+    user: {},
     userData: {
         orders: [],
         openOrders: [],
-        cart: [],
+        cart: {},
         order_id: ''
     },
-    items:  Array()
+    items:  []
 }
 
 module.exports = store

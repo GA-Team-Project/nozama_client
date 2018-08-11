@@ -2,33 +2,35 @@
 
 const api = require('./api.js')
 const ui = require('./ui.js')
+const store = require('../store')
+
 
 const createOrder = (data) => {
-
-  // console.log('events')
   api.createOrder(data)
     .then(ui.createOrderSuccess)
     .catch(ui.failure)
 }
 
-const onGetOrders = (event) => {
-  event.preventDefault()
-  // console.log('events')
+const onGetOrders = () => {
   api.getOrders()
     .then(ui.getOrdersSuccess)
     .catch(ui.failure)
 }
 
-const onDeleteOrder = (event) => {
-  event.preventDefault()
-  const orderId = $(event.target).closest('ul').attr('data-id')
-  api.deleteOrder(orderId)
-    .then(() => onGetOrders(event))
-    .catch(ui.failure)
+// const onDeleteOrder = (event) => {
+//   event.preventDefault()
+//   const orderId = $(event.target).closest('ul').attr('data-id')
+//   api.deleteOrder(orderId)
+//     .then(() => onGetOrders(event))
+//     .catch(ui.failure)
+// }
+
+const onShowCart = () => {
+  ui.showCart()
 }
 
 const addHandlers = () => {
-  $('#cart').on('click', onGetOrders)
+  $('#cart').on('click', onShowCart)
   // $('#cart').on('click', console.log('click'))
   $('#past-orders').on('click', onGetOrders)
   // $('#past-orders').on('click', console.log('click'))
@@ -39,5 +41,7 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  createOrder
+  createOrder,
+  onGetOrders,
+  onShowCart
 }

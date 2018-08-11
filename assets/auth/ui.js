@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../scripts/store')
+const ordersEvents = require('../scripts/orders/events')
 // const userEvents = require('../user/events')
 
 const clearMessage = (id) => {
@@ -27,6 +28,7 @@ const signInSuccess = function (data) {
   $('.sign-in-up').css('display', 'none')
   $('#seeInfo').css('display', 'block').text(`Hello, ${firstName}`)
   $('#cart').css('display', 'block')
+  ordersEvents.onGetOrders()
 }
 
 const changePasswordSuccess = function () {
