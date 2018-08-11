@@ -7,6 +7,12 @@ const store = {
         cart: [],
         oder_id: ''
     },
+    userData: {
+        orders: [],
+        openOrders: [],
+        cart: [],
+        order_id: ''
+    },
     items:  Array()
 }
 

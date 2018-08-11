@@ -59,7 +59,7 @@ const addToCart = function (event) {
         newOrder.items.length == 1 ? 
             ordersAPI.createOrder(data)
                 .then(ui.createOrderSuccess)
-         :  ordersAPI.updateOrder(data, store.user.order_id)
+         :  ordersAPI.updateOrder(data, store.userData.order_id)
         // ordersAPI.createOrder(order)
     }
 // }
