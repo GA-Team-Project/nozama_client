@@ -2,60 +2,72 @@ const store = require('../scripts/store')
 const api = require('./api')
 const ui = require('./ui')
 const ordersAPI = require('../scripts/orders/api')
-const cart = store.userData.cart
 
-
-// const isEmpty = (arr) => {
-//     arr.length === 0 ? console.log(true) : console.log(false)
-// }
-
-const total = (data) => {
+const total = (arr) => {
     let total = 0
-    for (let i = 0; i < data.length; i++) {
-        total += (data[i].price) * 1
-    }
-    // console.log(total)
-    return total
+    // console.log(cart)
+    arr.forEach(item => {
+        if (item.hasOwnProperty('price')) {
+            // for (let i = 0; i < arr.length; i++) {
+                total += (item.price) * 1
+            // }
+        }
+        store.userData.cart.total += total
+    })
+
+    console.log(total)
+    console.log(store.userData.cart.total)
+    // console.log(arr)
+    // return total
 }
 
 const addToCart = function (event) {
-    event.preventDefault()
-    let target = $(event.target).parents('ul').attr('data-id')
-    let price = $(event.target).parents('ul').attr('data-price')
-    let item, newOrder
+    const cart = store.userData.cart
+    const cartItems = cart.items
+    let orderTotal = parseInt(cart.total)
+    console.log("start",orderTotal)
+    let target = $(this).parents('ul').attr('data-id')
+    let price = $(this).parents('ul').attr('data-price')
+    let item, newOrder, data, items = []
+    orderTotal += parseInt(price)
+    console.log(orderTotal)
+    console.log(price)
 
     item = {
-        id: target,
-        price: price,
-        qty: 1
+        item_id: target,
+        // price: price,
+        quantity: 1
     }
 
-    cart.push(item)
-    let orderTotal = total(cart)
-    let items = []
-    cart.forEach((element) => {
-        if (element.id in cart) {
+    // cartItems.push(item)
+    // orderTotal += parseInt(item.price)
+    // console.log(orderTotal)
+    // let total = 0
+    cart.items.forEach((item) => {
+        // total += item.price
+        // console.log(total)
+        if (item.item_id in cart.items) {
             console.log("Already in Array")
         } else
             items.push({
-                item_id: element.id,
-                quantity: element.qty
+                item_id: item.id,
+                quantity: item.qty
             })
     })
 
     newOrder = {
         owner: store.user._id,
-        items: items,
+        items: cartItems,
         total: orderTotal,
         submitted: false
 
     }
 
-    let data = {
+    data = {
         order: newOrder
     }
 
-    console.log(newOrder)
+    // console.log(newOrder)
     newOrder.items.length == 1 ?
         ordersAPI.createOrder(data)
         .then(ui.createOrderSuccess) :

@@ -23,10 +23,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this) // this === event.target 
   api.signIn(data)
   .then(ui.signInSuccess)
-  // .then(() => {
-  //   store.userData.order_id = store.userData.orders[0]._id
-  //   console.log("Sign in API: ",store.userData.order_id)
-  // })
+  .then(console.log(store))
   .catch(ui.signInFailure)
   
 }
