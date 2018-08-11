@@ -3,9 +3,12 @@
 const store = {
     user: {
         first_name: String(),
+    },
+    userData: {
         orders: [],
+        openOrders: [],
         cart: [],
-        oder_id: ''
+        order_id: ''
     },
     items:  Array()
 }
