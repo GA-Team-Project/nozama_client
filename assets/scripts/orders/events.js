@@ -32,7 +32,7 @@ const onShowCart = () => {
 const addHandlers = () => {
   $('#cart').on('click', onShowCart)
   // $('#cart').on('click', console.log('click'))
-  $('#past-orders').on('click', onGetOrders)
+  $('#past-orders').on('click', ui.onShowPastOrders)
   // $('#past-orders').on('click', console.log('click'))
   // $('#getOrdersButton').on('click', console.log('click'))
   // $('#clearordersButton').on('click', onClearorders)
