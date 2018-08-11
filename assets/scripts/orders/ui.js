@@ -27,12 +27,15 @@ const getOrdersSuccess = (data) => {
   console.log("Cart store", store.userData.cart)
   // console.log("Orders", orderHistory)
   store.userData.order_id = store.userData.cart._id
-  // const showOrdersHtml = showOrdersTemplate({ orders: orderHistory })
-  // $('#userInfoModal').modal('hide')
-  // $('.content').html(showOrdersHtml)
   console.log(store)
   return cart
 }
+const onShowPastOrders = () => {
+  const showOrdersHtml = showOrdersTemplate({ orders: orderHistory })
+  $('#userInfoModal').modal('hide')
+  $('.content').html(showOrdersHtml)
+}
+
 
 // WORK IN PROGRESS
 const showCart = function () {
@@ -49,6 +52,7 @@ const failure = (error) => {
 module.exports = {
   createOrderSuccess,
   getOrdersSuccess,
+  onShowPastOrders,
   showCart,
   failure
 }
