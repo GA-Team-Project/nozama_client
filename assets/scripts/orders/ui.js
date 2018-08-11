@@ -14,12 +14,14 @@ const createOrderSuccess = () => {
 const getOrdersSuccess = (data) => {
   const current_user = store.user._id
   for (let i = 0; i < data.orders.length; i++) {
-    if (data.orders[i].owner === current_user && data.orders[i].submitted ) {
+    if (data.orders[i].owner === current_user && data.orders[i].submitted) {
       orderHistory.push(data.orders[i])
-    } else if (!data.orders[i].submitted && data.orders[i].owner === current_user ) {
+    } else if (!data.orders[i].submitted && data.orders[i].owner === current_user) {
       store.userData.cart = data.orders[i]
       // console.log(cart)
-    } else { console.log("Skipping")}
+    } else {
+      console.log("Skipping")
+    }
   }
   // console.log("Store", store)
   console.log("Cart store", store.userData.cart)
@@ -35,7 +37,7 @@ const getOrdersSuccess = (data) => {
 // WORK IN PROGRESS
 const showCart = function () {
   const showCartHtml = checkoutTemplate({
-    items: cart
+    items: store.userData.cart.items
   })
   $('.content').html(showCartHtml)
 }
