@@ -1,6 +1,7 @@
 const store = require('../scripts/store')
 const api = require('./api')
 const ui = require('./ui')
+const ordersUI = require('../scripts/orders/ui')
 const ordersAPI = require('../scripts/orders/api')
 const config = require('../scripts/config')
 
@@ -54,6 +55,9 @@ const deleteItem = function (event) {
     console.log('clicked delete')
     const orderId = $(event.target).attr('data-id')
     console.log(orderId)
+    ordersAPI.deleteOrder(orderId)
+        .then(ordersUI.showCart)
+        .catch(ordersUI.failure)
 }
 
 const userHandlers = () => {
