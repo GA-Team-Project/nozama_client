@@ -50,13 +50,15 @@ const showCart = function () {
   // })
 
   cart.items.forEach(item => {
-    let itemName = item.item_id
+    let itemPrice, itemName
     nozamaItems.filter(((obj) => {
-      item.item_id == obj._id ?
-        itemName = obj.name : ''
+      if (item.item_id == obj._id) {
+        itemName = obj.name
+        itemPrice = parseInt(obj.price) / 100.00
+      }
     }))
     let itemQty = item.quantity
-    let markup = `<tr><td> ${itemName} </td> <td></td> <td> ${itemQty} </td></tr>`
+    let markup = `<tr><td> ${itemName} </td> <td> ${itemQty} </td> <td> $${itemPrice}.00 </td></tr>`
     $('tbody').append(markup)
   })
   let total = parseInt(cart.total) / 100.00
