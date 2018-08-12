@@ -77,6 +77,9 @@ const addToCart = function (event) {
 
 const userHandlers = () => {
     $('.content').on('click', "button[id^='addToCart']", addToCart)
+    $('#stripe-input').val('Bearer ' + store.user.token)
+    $('.stripe-button').attr('data-amount', store.userData.cart.total)
+    $('.stripe-button').attr('data-description', `Nozama ${store.userData.cart._id}`)
 }
 
 module.exports = {
