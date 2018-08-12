@@ -52,7 +52,7 @@ const showCart = function () {
       }
     }))
     let itemQty = item.quantity
-    let markup = `<tr><td> ${itemName} </td> <td> ${itemQty} </td> <td> $${itemPrice}.00 </td> <td><button class="btn btn-warning" id="remove-item" data-id=${cart._id}>Remove</button></td></tr>`
+    let markup = `<tr><td> ${itemName} </td> <td> ${itemQty} </td> <td> $${itemPrice}.00 </td> </tr>`
     $('tbody').append(markup)
   })
   let total = parseInt(cart.total) / 100.00

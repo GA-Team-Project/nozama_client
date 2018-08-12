@@ -38,7 +38,10 @@ const getOrders = function () {
 const deleteOrder = (itemId) => {
   return $.ajax({
     url: config.apiUrl + '/orders/' + itemId,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
