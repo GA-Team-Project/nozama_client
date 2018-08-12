@@ -18,15 +18,10 @@ const getOrdersSuccess = (data) => {
     } else if (!data.orders[i].submitted && data.orders[i].owner === current_user) {
       store.userData.cart = data.orders[i]
       // console.log(cart)
-    } else {
-      console.log("Skipping")
     }
   }
-  // console.log("Store", store)
-  console.log("Cart store", store.userData.cart)
-  // console.log("Orders", orderHistory)
+
   store.userData.order_id = store.userData.cart._id
-  console.log(store)
   return cart
 }
 const onShowPastOrders = () => {
@@ -40,14 +35,28 @@ const onShowPastOrders = () => {
 
 // WORK IN PROGRESS
 const showCart = function () {
-
+  // Checkout Form Logic
   const cart = store.userData.cart
+  let sameItemsInSart = 0
+  let nozamaItems = store.items
   $('.content').html(checkoutTemplate)
+  // console.log(store.items)
+
+  // cart.items.forEach(item => {
+  //   nozamaItems.filter(((obj) => {
+  //     item.item_id == obj._id ? 
+  //     console.log(obj.name) : ''
+  //   }))
+  // })
 
   cart.items.forEach(item => {
     let itemName = item.item_id
+    nozamaItems.filter(((obj) => {
+      item.item_id == obj._id ?
+        itemName = obj.name : ''
+    }))
     let itemQty = item.quantity
-    var markup = `<tr><td> ${itemName} </td> <td></td> <td> ${itemQty} </td></tr>`
+    let markup = `<tr><td> ${itemName} </td> <td></td> <td> ${itemQty} </td></tr>`
     $('tbody').append(markup)
   })
   let total = parseInt(cart.total) / 100.00
