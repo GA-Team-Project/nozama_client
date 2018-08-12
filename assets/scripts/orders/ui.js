@@ -3,7 +3,6 @@
 const checkoutTemplate = require('../templates/checkout.handlebars')
 const showOrdersTemplate = require('../templates/order.handlebars')
 const store = require('../store')
-// let cart = store.userData.cart
 let orderHistory = store.userData.orders
 
 
@@ -31,7 +30,9 @@ const getOrdersSuccess = (data) => {
   return cart
 }
 const onShowPastOrders = () => {
-  const showOrdersHtml = showOrdersTemplate({ orders: orderHistory })
+  const showOrdersHtml = showOrdersTemplate({
+    orders: orderHistory
+  })
   $('#userInfoModal').modal('hide')
   $('.content').html(showOrdersHtml)
 }
@@ -39,10 +40,16 @@ const onShowPastOrders = () => {
 
 // WORK IN PROGRESS
 const showCart = function () {
-  const showCartHtml = checkoutTemplate({
-    items: store.userData.cart.items
+
+  const cart = store.userData.cart
+  $('.content').html(checkoutTemplate)
+
+  cart.items.forEach(item => {
+    let itemName = item.item_id
+    let itemQty = item.quantity
+    var markup = `<tr><td> ${itemName} </td> <td></td> <td> ${itemQty} </td></tr>`
+    $('tbody').append(markup)
   })
-  $('.content').html(showCartHtml)
 }
 
 const failure = (error) => {

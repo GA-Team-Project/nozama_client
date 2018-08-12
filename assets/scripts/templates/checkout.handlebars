@@ -3,30 +3,25 @@
   <hr>
   <BR />
   <table>
-    <tr>
-      <th>Item Name</th>
-      <th>Item Qty</th>
-      <th>Item price</th>
-    </tr>
-    {{#each items as |item| }} 
-    {{log item}}
+    <thead>
       <tr>
-        <td>{{item.item_id}}</td>
-        <td>{{item.quantity}}</td>
-        <td>{{item.price}}</td>
+        <th>Item Name</th>
+        <th>Item Qty</th>
+        <th>Item price</th>
       </tr>
+    </thead>
+    <tbody></tbody>
   </table>
-    {{/each}}
+
   <div>
     <h3>Total: </h3>
-      <div class="stripe">
-        <form id="stripe-form" method="POST">
-          <input id="stripe-input" type='hidden' name='headers[Authorization]'/>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_I14scEAR7GUQqoFGFTTdriYt" 
-            data-name="Stripe.com" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-            data-locale="auto" data-zip-code="true">
+    <div class="stripe">
+      <form id="stripe-form" method="POST">
+        <input id="stripe-input" type='hidden' name='headers[Authorization]' />
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_I14scEAR7GUQqoFGFTTdriYt" data-name="Stripe.com"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-zip-code="true">
           </script>
-        </form>
-      </div>
+      </form>
+    </div>
   </div>
 </div>
