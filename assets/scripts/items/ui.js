@@ -7,6 +7,7 @@ const getItemsSuccess = (data) => {
   store.items = data.items
   const showItemsHtml = showItemsTemplate({ items: data.items })
   $('.content').html(showItemsHtml)
+  $('.stripe').css('display', 'none')
 }
 
 const clearItems = () => {

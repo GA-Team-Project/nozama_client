@@ -31,6 +31,7 @@ const getOrdersSuccess = (data) => {
   // $('#userInfoModal').modal('hide')
   // $('.content').html(showOrdersHtml)
   console.log(store)
+  $('.stripe').css('display', 'none')
   return cart
 }
 
@@ -40,6 +41,7 @@ const showCart = function () {
     items: store.userData.cart.items
   })
   $('.content').html(showCartHtml)
+  $('.stripe').css('display', 'block')
 }
 
 const failure = (error) => {
