@@ -14,6 +14,11 @@ const createOrder = (data) => {
 const onGetOrders = () => {
   api.getOrders()
     .then(ui.getOrdersSuccess)
+    .then(() => {
+      const cartLength = store.userData.cart.items.length
+      const badge = $('.badge-notify')      
+      badge.text(cartLength)
+    })
     .catch(ui.failure)
 }
 

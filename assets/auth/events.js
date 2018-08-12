@@ -23,7 +23,6 @@ const onSignIn = function (event) {
   const data = getFormFields(this) // this === event.target 
   api.signIn(data)
   .then(ui.signInSuccess)
-  .then(console.log(store))
   .catch(ui.signInFailure)
   
 }

@@ -9,6 +9,10 @@ font-size: 16px;
 // content: '';
 }
 
+.hidden {
+    display: none;
+}
+
 .navbar {
     font-size: 20px;
     margin-bottom: 0;
@@ -17,7 +21,16 @@ font-size: 16px;
     .navbar-brand > img {
         padding: 10px 10px;
     }
+
 }
+
+.badge-notify{
+    background: #f8ab3e;
+    position:relative;
+    top: -20px;
+    left: -35px;
+    color: #333
+ }
 
 .glyphicon {
     font-size: 18px;

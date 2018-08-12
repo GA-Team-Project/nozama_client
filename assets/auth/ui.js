@@ -2,7 +2,6 @@
 
 const store = require('../scripts/store')
 const ordersEvents = require('../scripts/orders/events')
-// const userEvents = require('../user/events')
 
 const clearMessage = (id) => {
   // console.log(id)
@@ -40,6 +39,7 @@ const changePasswordSuccess = function () {
 const signOutSuccess = function () {
   store.user = {}
   store.orders = []
+  store.userData
   // Close toggle menu (Mobile View)
   // $('.navbar-toggle').hasClass('collapsed') ?
   //   '' : $('.navbar-toggle').click()

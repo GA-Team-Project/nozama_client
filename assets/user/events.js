@@ -15,40 +15,38 @@ const addToCart = function (event) {
             item_id: target,
             quantity: 1
         }
-        // console.log(item)
 
-        !cart.hasOwnProperty('owner') ? (() => {
-            orderTotal += parseInt(itemPrice)
-            // console.log(orderTotal)
+    // Is the cart empty?
+    !cart.hasOwnProperty('owner') ? (() => {
+        // Make a new order obj to send
+        orderTotal += parseInt(itemPrice)
 
-            items.push(item)
-            newOrder = {
-                owner: store.user._id,
-                items: items,
-                total: orderTotal,
-                submitted: false
-            }
-            data = {
-                order: newOrder
-            }
-            // console.log(data)
-            ordersAPI.createOrder(data)
-                .then(ui.createOrderSuccess)
-                .catch(console.error())
-        })() : (() => {
-            orderTotal += parseInt(cart.total)
-            orderTotal += parseInt(itemPrice)
-            // console.log(orderTotal)
+        items.push(item)
+        newOrder = {
+            owner: store.user._id,
+            items: items,
+            total: orderTotal,
+            submitted: false
+        }
+        data = {
+            order: newOrder
+        }
+        ordersAPI.createOrder(data)
+            .then(ui.createOrderSuccess)
+            .catch(console.error())
+    })() : (() => {
+        // Else: update the existing order (cart)
+        orderTotal += parseInt(cart.total)
+        orderTotal += parseInt(itemPrice)
 
-            cartItems.push(item)
-            cart.total = orderTotal
-            data = {
-                order: cart
-            }
-            // console.log(data)
-            ordersAPI.updateOrder(data, store.userData.order_id)
-                .then(ui.updateOrderSucces)
-        })()
+        cartItems.push(item)
+        cart.total = orderTotal
+        data = {
+            order: cart
+        }
+        ordersAPI.updateOrder(data, store.userData.order_id)
+            .then(ui.updateOrderSucces)
+    })()
 }
 
 const userHandlers = () => {
