@@ -2,6 +2,7 @@ const store = require('../scripts/store')
 const api = require('./api')
 const ui = require('./ui')
 const ordersAPI = require('../scripts/orders/api')
+const config = require('../scripts/config')
 
 const addToCart = function (event) {
     const cart = store.userData.cart
@@ -51,6 +52,10 @@ const addToCart = function (event) {
 
 const userHandlers = () => {
     $('.content').on('click', "button[id^='addToCart']", addToCart)
+    $('#stripe-input').val('Bearer ' + store.user.token)
+    $('.stripe-button').attr('data-amount', store.userData.cart.total)
+    $('.stripe-button').attr('data-description', `Nozama ${store.userData.cart._id}`)
+    $('#stripe-form').attr('action', config.apiUrls)
 }
 
 module.exports = {
