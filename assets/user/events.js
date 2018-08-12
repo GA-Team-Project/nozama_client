@@ -52,6 +52,8 @@ const addToCart = function (event) {
 
 const deleteItem = function (event) {
     console.log('clicked delete')
+    const orderId = $(event.target).attr('data-id')
+    console.log(orderId)
 }
 
 const userHandlers = () => {
