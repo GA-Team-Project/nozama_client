@@ -2,6 +2,7 @@ const store = require('../scripts/store')
 const api = require('./api')
 const ui = require('./ui')
 const ordersAPI = require('../scripts/orders/api')
+const config = require('../scripts/config')
 
 const total = (arr) => {
     let total = 0
@@ -80,6 +81,7 @@ const userHandlers = () => {
     $('#stripe-input').val('Bearer ' + store.user.token)
     $('.stripe-button').attr('data-amount', store.userData.cart.total)
     $('.stripe-button').attr('data-description', `Nozama ${store.userData.cart._id}`)
+    $('#stripe-form').attr('action', config.apiUrls)
 }
 
 module.exports = {

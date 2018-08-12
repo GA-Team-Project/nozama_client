@@ -20,7 +20,7 @@
   <div>
     <h3>Total: </h3>
       <div class="stripe">
-        <form action="http://localhost:4741/orders" method="POST">
+        <form id="stripe-form" method="POST">
           <input id="stripe-input" type='hidden' name='headers[Authorization]'/>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_I14scEAR7GUQqoFGFTTdriYt" 
             data-name="Stripe.com" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
