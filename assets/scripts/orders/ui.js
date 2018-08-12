@@ -40,14 +40,6 @@ const showCart = function () {
   let sameItemsInSart = 0
   let nozamaItems = store.items
   $('.content').html(checkoutTemplate)
-  // console.log(store.items)
-
-  // cart.items.forEach(item => {
-  //   nozamaItems.filter(((obj) => {
-  //     item.item_id == obj._id ? 
-  //     console.log(obj.name) : ''
-  //   }))
-  // })
 
   cart.items.forEach(item => {
     let itemPrice, itemName
