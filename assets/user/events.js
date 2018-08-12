@@ -3,76 +3,52 @@ const api = require('./api')
 const ui = require('./ui')
 const ordersAPI = require('../scripts/orders/api')
 
-const total = (arr) => {
-    let total = 0
-    // console.log(cart)
-    arr.forEach(item => {
-        if (item.hasOwnProperty('price')) {
-            // for (let i = 0; i < arr.length; i++) {
-                total += (item.price) * 1
-            // }
-        }
-        store.userData.cart.total += total
-    })
-
-    console.log(total)
-    console.log(store.userData.cart.total)
-    // console.log(arr)
-    // return total
-}
-
 const addToCart = function (event) {
     const cart = store.userData.cart
     const cartItems = cart.items
-    let orderTotal = parseInt(cart.total)
-    console.log("start",orderTotal)
-    let target = $(this).parents('ul').attr('data-id')
-    let price = $(this).parents('ul').attr('data-price')
+    let orderTotal = 0
+    let target = $(event.target).parents('ul').attr('data-id')
+    let itemPrice = $(event.target).parents('ul').attr('data-price')
     let item, newOrder, data, items = []
-    orderTotal += parseInt(price)
-    console.log(orderTotal)
-    console.log(price)
 
     item = {
-        item_id: target,
-        // price: price,
-        quantity: 1
-    }
+            item_id: target,
+            quantity: 1
+        }
+        // console.log(item)
 
-    // cartItems.push(item)
-    // orderTotal += parseInt(item.price)
-    // console.log(orderTotal)
-    // let total = 0
-    cart.items.forEach((item) => {
-        // total += item.price
-        // console.log(total)
-        if (item.item_id in cart.items) {
-            console.log("Already in Array")
-        } else
-            items.push({
-                item_id: item.id,
-                quantity: item.qty
-            })
-    })
+        !cart.hasOwnProperty('owner') ? (() => {
+            orderTotal += parseInt(itemPrice)
+            // console.log(orderTotal)
 
-    newOrder = {
-        owner: store.user._id,
-        items: cartItems,
-        total: orderTotal,
-        submitted: false
+            items.push(item)
+            newOrder = {
+                owner: store.user._id,
+                items: items,
+                total: orderTotal,
+                submitted: false
+            }
+            data = {
+                order: newOrder
+            }
+            // console.log(data)
+            ordersAPI.createOrder(data)
+                .then(ui.createOrderSuccess)
+                .catch(console.error())
+        })() : (() => {
+            orderTotal += parseInt(cart.total)
+            orderTotal += parseInt(itemPrice)
+            // console.log(orderTotal)
 
-    }
-
-    data = {
-        order: newOrder
-    }
-
-    // console.log(newOrder)
-    newOrder.items.length == 1 ?
-        ordersAPI.createOrder(data)
-        .then(ui.createOrderSuccess) :
-        ordersAPI.updateOrder(data, store.userData.order_id)
-
+            cartItems.push(item)
+            cart.total = orderTotal
+            data = {
+                order: cart
+            }
+            // console.log(data)
+            ordersAPI.updateOrder(data, store.userData.order_id)
+                .then(ui.updateOrderSucces)
+        })()
 }
 
 const userHandlers = () => {
