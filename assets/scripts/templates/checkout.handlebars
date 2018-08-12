@@ -7,14 +7,14 @@
       <tr>
         <th>Item Name</th>
         <th>Item Qty</th>
-        <th>Item price</th>
+        {{!-- <th>Item price</th> --}}
       </tr>
     </thead>
     <tbody></tbody>
   </table>
 
   <div>
-    <h3>Total: </h3>
+    <h3 id="total">Total: </h3>
     <div class="stripe">
       <form id="stripe-form" method="POST">
         <input id="stripe-input" type='hidden' name='headers[Authorization]' />

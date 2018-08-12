@@ -50,6 +50,8 @@ const showCart = function () {
     var markup = `<tr><td> ${itemName} </td> <td></td> <td> ${itemQty} </td></tr>`
     $('tbody').append(markup)
   })
+  let total = parseInt(cart.total) / 100.00
+  $('#total').html(`Total: $${total}.00`)
 }
 
 const failure = (error) => {
