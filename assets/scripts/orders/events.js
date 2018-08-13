@@ -17,6 +17,7 @@ const onGetOrders = () => {
     .then(() => {
       const cartLength = store.userData.cart.items.length
       const badge = $('.badge-notify')      
+      // cartLength < 1 ? '' : 
       badge.text(cartLength)
     })
     .catch(ui.failure)
