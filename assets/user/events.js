@@ -52,9 +52,9 @@ const addToCart = function (event) {
 }
 
 const deleteItem = function (event) {
-    console.log('clicked delete')
+    // console.log('clicked delete')
     const orderId = $(event.target).attr('data-id')
-    console.log(orderId)
+    // console.log(orderId)
     ordersAPI.deleteOrder(orderId)
         .then(ordersUI.clearCart)
         .then(ordersUI.showCart)

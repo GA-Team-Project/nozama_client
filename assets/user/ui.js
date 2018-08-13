@@ -13,7 +13,7 @@ const createOrderSuccess = (data) => {
 const updateOrderSucces = (data) => {
     let newNumber = parseInt(badge.text()) + 1
     badge.text(newNumber)
-    console.log(newNumber)
+    // console.log(newNumber)
     // store.userData.cart = data.order
 }
 

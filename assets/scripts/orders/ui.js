@@ -43,8 +43,8 @@ const clearCart = function () {
 const showCart = function () {
   // Checkout Form Logic
   const cart = store.userData.cart
-  console.log(cart)
-  console.log(cart._id)
+  // console.log(cart)
+  // console.log(cart._id)
   let sameItemsInSart = 0
   let nozamaItems = store.items
   $('.content').html(checkoutTemplate)
