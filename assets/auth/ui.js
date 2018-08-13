@@ -27,6 +27,9 @@ const signInSuccess = function (data) {
   $('.sign-in-up').css('display', 'none')
   $('#seeInfo').css('display', 'block').text(`Hello, ${firstName}`)
   $('#cart').css('display', 'block')
+  $('.addToCart').each(function () {
+    $(this).text('Add to Cart')
+  })
   ordersEvents.onGetOrders()
 }
 
@@ -52,6 +55,7 @@ const signOutSuccess = function () {
   setTimeout(function () {
     $('#userInfoModal').modal('hide')
   }, 3000)
+
 }
 const signInFailure = function () {
   $('#sign-in-form')[0].reset()
