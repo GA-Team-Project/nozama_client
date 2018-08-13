@@ -37,6 +37,8 @@ const onShowPastOrders = () => {
 const showCart = function () {
   // Checkout Form Logic
   const cart = store.userData.cart
+  console.log(cart)
+  console.log(cart._id)
   let sameItemsInSart = 0
   let nozamaItems = store.items
   $('.content').html(checkoutTemplate)
@@ -50,10 +52,11 @@ const showCart = function () {
       }
     }))
     let itemQty = item.quantity
-    let markup = `<tr><td> ${itemName} </td> <td> ${itemQty} </td> <td> $${itemPrice}.00 </td></tr>`
+    let markup = `<tr><td> ${itemName} </td> <td> ${itemQty} </td> <td> $${itemPrice}.00 </td> </tr>`
     $('tbody').append(markup)
   })
   let total = parseInt(cart.total) / 100.00
+  $('#remove-item').attr('data-id', `${cart._id}`)
   $('#total').html(`Total: $${total}.00`)
 }
 
