@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Nozama</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="padding: 0 10px;">
+          <img src="https://github.com/GA-Team-Project/nozama_client/blob/master/assets/img/nozoma.png?raw=true" alt="nozama logo">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item active">
+            <p id="username" class="navbar-brand"></p>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#" id='seeInfo' data-toggle="modal" data-target="#userInfoModal">User Info</a>
+          </li>
+          <li class="nav-item cart">
+            <a class="nav-link" id="cart">
+              <i class="glyphicon glyphicon-shopping-cart"></i>
+              <span class="badge badge-notify">0</span>
+            </a>
+          </li>
+          <li class="dropdown sign-in-up">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <h3>Sign In</h3>
+                <hr>
+                <div id="sign-in-message"></div>
+                <br>
+                <form id="sign-in-form">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input type="email" name="credentials[email]" placeholder="Email" auocomplete="off" required>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-lock"></i>
+                    </span>
+                    <input type="password" name="credentials[password]" placeholder="Password" required>
+                  </div>
+                  <br>
+                  <br>
+                  <button type="submit" class="auth-btn btn btn-warning">Sign In</button>
+                </form>
+              </li>
+            </ul>
+            <!-- Sign In Form -->
+          </li>
+          <li class="dropdown sign-in-up">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <h3> Create an account </h3>
+              <hr>
+              <form id="sign-up-form">
+                <div id="sign-up-message"></div>
+                <br>
+                <label class="control-label" for="first_name">First Name</label>
+                <input type="text" name="credentials[first_name]" placeholder="First Name" auocomplete="off" required>
+                <br>
+                <br>
+                <label class="control-label" for="last_name">Last Name</label>
+                <input type="text" name="credentials[last_name]" placeholder="Last Name" auocomplete="off" required>
+                <br>
+                <br>
+                <label class="control-label" for="email">Email</label>
+                <input type="email" name="credentials[email]" placeholder="Email" auocomplete="off" required>
+                <br>
+                <br>
+                <label class="control-label" for="password">Password</label>
+                <input type="password" name="credentials[password]" placeholder="Password" required>
+                <br>
+                <br>
+                <label class="control-label" for="password_confirmation">Password Confirmation</label>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+                <br>
+                <br>
+                <button type="submit" class="auth-btn btn btn-warning">Create Account</button>
+              </form>
+            </ul>
+            <!-- Sign Up Form -->
+          </li>
+        </ul>
+        <!-- -->
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <!-- Carousel -->
+  <div class="carousel-wrapper">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="https://github.com/GA-Team-Project/nozama_client/blob/master/assets/img/minecraft.ad.png?raw=true" alt="minecraft ad">
+        </div>
+
+        <div class="item">
+          <img src="https://github.com/GA-Team-Project/nozama_client/blob/master/assets/img/chameleon.ad.png?raw=true" alt="chameleon ad">
+        </div>
+
+        <div class="item">
+          <img src="https://github.com/GA-Team-Project/nozama_client/blob/master/assets/img/jurrasicPark.ad.png?raw=true" alt="jurrasic park ad">
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ************************************** -->
+  <!-- USER INFO MODAL -->
+  <!-- ************************************** -->
+  <div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalMessageUserInfo"></h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <button type="submit" class="btn btn-warning" id="past-orders"> Past Orders </button>
+          <br>
+          <hr>
+          <form id="change-password" class="border">
+            <fieldset>
+              <h3>Change Password</h3>
+              <input type="password" name="passwords[old]" placeholder="Old Password">
+              <br>
+              <input type="password" name="passwords[new]" placeholder="New Password">
+              <br>
+              <br>
+              <button type="submit" class="btn btn-default">Change Password</button>
+            </fieldset>
+          </form>
+          <br>
+          <div id="changedPasswordMessage"></div>
+          <hr>
+          <br>
+          <form id="sign-out">
+            <input type="submit" class="btn btn-warning" value="Sign Out!">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ************************************** -->
+  <!-- End User info -->
+  <!-- ************************************** -->
+
+  <button id="getItemsButton" class="btn btn-default"></button>
+  <div class="content container-fluid"></div>
+</body>
+
+</html>

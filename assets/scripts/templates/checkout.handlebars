@@ -1,0 +1,28 @@
+<div class="cart-template">
+  <h1>Your Cart</h1>
+  <hr>
+  <BR />
+  <table>
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Item Qty</th>
+        <th>Item price</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div>
+    <h3 id="total"></h3>
+    <div class="stripe">
+      <form id="stripe-form" action="/charge" method="POST">
+        <input id="stripe-input" type='hidden' name='headers[Authorization]' />
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_I14scEAR7GUQqoFGFTTdriYt" data-name="Stripe.com"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-zip-code="true">
+          </script>
+      </form>
+    </div>
+    <button class="btn btn-warning" id="remove-item">Cancel Order</button>
+  </div>
+</div>

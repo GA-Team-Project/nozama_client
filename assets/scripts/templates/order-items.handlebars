@@ -1,0 +1,13 @@
+<div class="row">
+{{#each items as |item|}}
+  {{log item}}
+
+      <div class="caption">
+        <h3>{{item._id}}</h3>
+        <p>{{item.item_id}}</p>
+        <p><a href="#" class="btn btn-warning" role="button">Update</a></p>
+        <p><a href="#" class="btn btn-warning" role="button">Remove from cart</a></p>
+      </div>
+
+{{/each}}
+</div>

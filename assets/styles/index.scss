@@ -1,0 +1,97 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+* {
+font-size: 16px;
+}
+
+body {
+    padding-top: 71px;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.navbar {
+    font-size: 20px;
+    margin-bottom: 0;
+    padding: 10px 0; 
+
+    .navbar-brand > img {
+        padding: 10px 10px;
+    }
+
+}
+
+.badge-notify{
+    background: #f8ab3e;
+    position:relative;
+    top: -20px;
+    left: -35px;
+    color: #333
+ }
+
+.glyphicon {
+    font-size: 18px;
+}
+.dropdown-menu {
+    padding: 0 10px 10px 10px;
+    width: 350px;
+
+    .auth-btn, input {
+        width: 100%;
+    }
+
+    input {
+        padding: 5px;
+    }
+}
+
+#remove-item {
+    float: right;
+}
+
+// **********************
+// Hidden until signed in
+// **********************
+#seeInfo {
+    display: none;
+}
+#cart {
+    display: none;
+}
+#userInfoModal{
+    text-align: center;
+}
+
+// **********************
+// Styles for items
+// **********************
+#getItemsButton {
+    display: none;
+}
+.content {
+    margin-top: 50px;
+}
+.thumbnail {
+    height: 450px;
+    text-align: left;
+}
+
+.thumbnail > img {
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+}
+.caption > ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+th, td {
+    padding: 15px;
+}

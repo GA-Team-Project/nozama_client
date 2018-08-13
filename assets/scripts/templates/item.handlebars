@@ -1,0 +1,25 @@
+{{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --}}
+<div class="row">
+{{#each items as |item|}}
+  {{!-- {{log item}} --}}
+
+  <div class="col-sm-6 col-md-3 item-image">
+    <div class="thumbnail">
+      <img src={{item.url}} alt="lego figure">
+      <div class="caption">
+        <h3>{{item.name}}</h3>
+        {{!-- <hr> --}}
+          <ul data-id="{{item._id}}" data-price="{{item.price}}">
+            <li><b>Price:</b> ${{item.price}}</li>
+            <li><b>Description:</b> {{item.description}}</li>
+            <li><b>Weight:</b> {{item.weight}}g</li>
+            <li><b>Dimensions:</b> {{item.dimensions}}</li>
+            <li>
+              <button class="btn btn-warning addToCart" role="button" id="addToCart">Sign in to shop</button>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</div>
