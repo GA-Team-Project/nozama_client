@@ -4,6 +4,7 @@ const checkoutTemplate = require('../templates/checkout.handlebars')
 const showOrdersTemplate = require('../templates/order.handlebars')
 const store = require('../store')
 let orderHistory = store.userData.orders
+// let badge = $('.badge-notify')
 
 
 const createOrderSuccess = () => {
@@ -32,6 +33,11 @@ const onShowPastOrders = () => {
   $('.content').html(showOrdersHtml)
 }
 
+const clearCart = function () {
+  // $('tbody').html('')
+  store.userData.cart = {}
+  $('.badge-notify').text(0)
+}
 
 // WORK IN PROGRESS
 const showCart = function () {
@@ -68,6 +74,7 @@ module.exports = {
   createOrderSuccess,
   getOrdersSuccess,
   onShowPastOrders,
+  clearCart,
   showCart,
   failure
 }

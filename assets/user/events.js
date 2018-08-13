@@ -56,6 +56,7 @@ const deleteItem = function (event) {
     const orderId = $(event.target).attr('data-id')
     console.log(orderId)
     ordersAPI.deleteOrder(orderId)
+        .then(ordersUI.clearCart)
         .then(ordersUI.showCart)
         .catch(ordersUI.failure)
 }
