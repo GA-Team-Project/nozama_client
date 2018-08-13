@@ -16,7 +16,7 @@
   <div>
     <h3 id="total"></h3>
     <div class="stripe">
-      <form id="stripe-form" method="POST">
+      <form id="stripe-form" action="/charge" method="POST">
         <input id="stripe-input" type='hidden' name='headers[Authorization]' />
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_I14scEAR7GUQqoFGFTTdriYt" data-name="Stripe.com"
           data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-zip-code="true">
