@@ -52,6 +52,7 @@ const signOutSuccess = function () {
   $('#username').text(``)
   $('#getItemsButton').click()
   $('#changedPasswordMessage').text('Signed out! See you next time!').css('background', '#FFFFCC').fadeOut(3000)
+  $('#getItemsButton').click()
   setTimeout(function () {
     $('#userInfoModal').modal('hide')
   }, 3000)
