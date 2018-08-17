@@ -1,5 +1,5 @@
 'use strict'
-
+const userEvents = require('../../user/events')
 const checkoutTemplate = require('../templates/checkout.handlebars')
 const showOrdersTemplate = require('../templates/order.handlebars')
 const store = require('../store')
@@ -64,6 +64,7 @@ const showCart = function () {
   let total = parseInt(cart.total) / 100.00
   $('#remove-item').attr('data-id', `${cart._id}`)
   $('#total').html(`Total: $${total}.00`)
+  userEvents.loggedInHandlers()
 }
 
 const failure = (error) => {

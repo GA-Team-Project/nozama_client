@@ -61,6 +61,30 @@ const deleteItem = function (event) {
         .catch(ordersUI.failure)
 }
 
+const handler = StripeCheckout.configure({
+    key: 'pk_test_I14scEAR7GUQqoFGFTTdriYt',
+    image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+    locale: 'auto',
+    token: function (token) {
+        $.ajax({
+            url: 'http://localhost:4741/charges',
+            type: 'POST',
+            data: {
+                token
+            }
+        })
+    }
+})
+
+const onSendCharge = event => {
+    event.preventDefault()
+    handler.open({
+        name: 'Demo Site',
+        description: '2 widgets',
+        amount: 2000
+    })
+}
+
 const userHandlers = () => {
     $('.content').on('click', "button[id^='addToCart']", addToCart)
     $('#stripe-input').val('Bearer ' + store.user.token)
@@ -70,6 +94,11 @@ const userHandlers = () => {
     $('.content').on('click', "button[id^='remove-item']", deleteItem)
 }
 
+const loggedInHandlers = () => {
+    $('#stripe-button-form').on('submit', onSendCharge)
+}
+
 module.exports = {
-    userHandlers
+    userHandlers,
+    loggedInHandlers
 }
