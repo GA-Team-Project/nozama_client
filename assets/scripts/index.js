@@ -36,5 +36,6 @@ $(() => {
   itemEvents.addHandlers()
   userEvents.userHandlers()
   orderEvents.addHandlers()
+  onSendCharge()
   $('#getItemsButton').click()
 })
