@@ -15,6 +15,7 @@ const onGetOrders = () => {
   api.getOrders()
     .then(ui.getOrdersSuccess)
     .then(() => {
+      console.log(store.userData)
       const cartLength = store.userData.cart.items.length
       const badge = $('.badge-notify')      
       // cartLength < 1 ? '' : 

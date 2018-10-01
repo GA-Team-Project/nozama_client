@@ -36,6 +36,6 @@ $(() => {
   itemEvents.addHandlers()
   userEvents.userHandlers()
   orderEvents.addHandlers()
-  onSendCharge()
+  $('.stripe-button').on('click', onSendCharge)
   $('#getItemsButton').click()
 })

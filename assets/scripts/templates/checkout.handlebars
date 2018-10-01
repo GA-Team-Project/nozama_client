@@ -1,3 +1,5 @@
+const config = require('../config.js')
+
 <div class="cart-template">
   <h1>Your Cart</h1>
   <hr>
@@ -15,10 +17,20 @@
 
   <div>
     <h3 id="total"></h3>
-    <script src="https://checkout.stripe.com/checkout.js" ></script>
-    <form action="" id="charge">
-      <input type="submit"></input>
-    </form>
+    <form action="{{config.apiUrls}}" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_TYooMQauvdEDq54NiTphI7jx"
+    data-amount="999"
+    data-name="Stripe.com"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
+</form>
+
+    <button id="customButton">Purchase</button>
     <button class="btn btn-warning" id="remove-item">Cancel Order</button>
   </div>
 </div>
