@@ -45,6 +45,11 @@ const addHandlers = () => {
   // $('.content').on('click', 'button', onDeleteOrder)
 }
 
+const onSubmitOrders = (event) => {
+  event.preventDefault();
+  
+}
+
 module.exports = {
   addHandlers,
   createOrder,

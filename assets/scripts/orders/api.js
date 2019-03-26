@@ -45,9 +45,21 @@ const deleteOrder = (itemId) => {
   })
 }
 
+const submitOrder = (data) => {
+  return $.ajax({
+    url: config.apiUrl + '/checkout',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   getOrders,
   deleteOrder,
   createOrder,
-  updateOrder
+  updateOrder,
+  submitOrder
 }

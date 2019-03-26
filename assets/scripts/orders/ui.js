@@ -64,6 +64,7 @@ const showCart = function () {
   let total = parseInt(cart.total) / 100.00
   $('#remove-item').attr('data-id', `${cart._id}`)
   $('#total').html(`Total: $${total}.00`)
+  $("[data-name='Stripe.com'").attr('data-amount', `${total}`)
 }
 
 const failure = (error) => {
